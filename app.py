@@ -11,9 +11,9 @@ app = Flask("wix-webhook-handler")
 def get_db_connection():
     return pymysql.connect(
         host='db-mysql-nyc3-52064-do-user-29460921-0.i.db.ondigitalocean.com',
-        user=os.environ.get('doadmin'),
-        password=os.environ.get('AVNS_ILX0oaloelaGD-ADOoM'),
-        database=os.environ.get('defaultdb'),
+        user=os.environ.get('DB_USER'),
+        password=os.environ.get('DB_PASSWORD'),
+        database=os.environ.get('DB_NAME'),
         port=25060,
         ssl={'require': True}
     )
