@@ -24,9 +24,14 @@ def handle_webhook():
     print(f"Received webhook: {webhook_data}")
     
     # Extract form information
-    test = webhook_data.get('test', '')
     # contact_name = webhook_data.get('contact_first_name', '')
     # form_data = webhook_data.get('form_data', {})
+    payload_type = webhook_data.get('payload_type', '')
+    wrap_in_array = webhook_data.get('wrap_in_array', '')
+    unflatten = webhook_data.get('unflatten', '')
+    url = webhook_data.get('url', '')
+    data = webhook_data.get('data', {})
+    headers = webhook_data.get('headers', {})
     # timestamp = datetime.now()
     
     # Connect to database
@@ -39,11 +44,11 @@ def handle_webhook():
     # VALUES (%s, %s, %s)
     # """
     insert_query = """
-    INSERT INTO form_submissions (test)
-    VALUES ( %s )
+    INSERT INTO form_submissions (payload_type, wrap_in_array, unflatten, url, data, headers)
+    VALUES (%s, %s, %s, %s, %s, %s)
     """
     # cursor.execute(insert_query, (contact_name, json.dumps(form_data), timestamp))
-    cursor.execute(insert_query, (json.dumps(test)))
+    cursor.execute(insert_query, payload_type, wrap_in_array, unflatten, url, json.dumps(data), json.dumps(headers))
     
     # Handle file uploads if present
     if 'file_uploads' in webhook_data:
