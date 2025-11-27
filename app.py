@@ -1,4 +1,3 @@
-python
 import os
 import json
 import requests
@@ -10,7 +9,7 @@ app = Flask("wix-webhook-handler")
 
 def get_db_connection():
     return pymysql.connect(
-        host='db-mysql-nyc3-52064-do-user-29460921-0.i.db.ondigitalocean.com',
+        host='https://db-mysql-nyc3-52064-do-user-29460921-0.i.db.ondigitalocean.com',
         user=os.environ.get('DB_USER'),
         password=os.environ.get('DB_PASSWORD'),
         database=os.environ.get('DB_NAME'),
@@ -82,4 +81,4 @@ def health_check():
     return jsonify({"status": "healthy"}), 200
 
 # if name == 'main':
-app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5001)))
