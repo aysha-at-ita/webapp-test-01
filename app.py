@@ -36,8 +36,8 @@ def handle_webhook():
     # timestamp = datetime.now()
     
     # Connect to database
-    connection = get_db_connection()
-    cursor = connection.cursor()
+    # connection = get_db_connection()
+    # cursor = connection.cursor()
     
     # Example: Insert form submission
     # insert_query = """
@@ -57,9 +57,9 @@ def handle_webhook():
     #         # Download and save files to your DigitalOcean Volume
     #         download_file_to_volume(file_info)
     
-    connection.commit()
-    cursor.close()
-    connection.close()
+    # connection.commit()
+    # cursor.close()
+    # connection.close()
     
     return jsonify({"status": "success", "message": "Webhook processed"}), 200
     
