@@ -8,14 +8,14 @@ from datetime import datetime
 # app = Flask("wix-webhook-handler")
 app = Flask(__name__)
 
-def get_db_connection():
-    return pymysql.connect(
-        host='https://db-mysql-nyc3-52064-do-user-29460921-0.i.db.ondigitalocean.com',
-        user=os.environ.get('DB_USER'),
-        password=os.environ.get('DB_PASSWORD'),
-        database=os.environ.get('DB_NAME'),
-        port=25060,
-        ssl={'require': True}
+# def get_db_connection():
+#     return pymysql.connect(
+#         host='https://db-mysql-nyc3-52064-do-user-29460921-0.i.db.ondigitalocean.com',
+#         user=os.environ.get('DB_USER'),
+#         password=os.environ.get('DB_PASSWORD'),
+#         database=os.environ.get('DB_NAME'),
+#         port=25060,
+#         ssl={'require': True}
     )
 
 @app.route('/webhook', methods=['POST'])
