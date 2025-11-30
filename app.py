@@ -16,7 +16,7 @@ app = Flask(__name__)
 #         database=os.environ.get('DB_NAME'),
 #         port=25060,
 #         ssl={'require': True}
-    )
+    # )
 
 @app.route('/webhook', methods=['POST'])
 def handle_webhook():
